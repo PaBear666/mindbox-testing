@@ -19,7 +19,7 @@ namespace Figure.Models
             CSide = cSide;
 
 
-            if (!AreNotCorrectedRelationSides())
+            if (!AreCorrectedRelationSides())
             {
                 throw new FigureException("It isn't possible to construct a triangle with the specified lengths");
             }
@@ -64,7 +64,7 @@ namespace Figure.Models
         }
 
 
-        private bool AreNotCorrectedRelationSides()
+        private bool AreCorrectedRelationSides()
         {
             return ASide + BSide > CSide
                    && ASide + CSide > BSide
