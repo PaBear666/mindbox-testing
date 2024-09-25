@@ -6,7 +6,7 @@ namespace Figure.Models
     public class Triangle : Polygon
     {
         private double? _area;
-        private bool? isRectangle;
+        private bool? _isRectangle;
 
         public double ASide { get; }
         public double BSide { get; }
@@ -39,28 +39,27 @@ namespace Figure.Models
 
         public bool IsRectangular()
         {
-            if (isRectangle != null)
+            if (_isRectangle != null)
             {
-                return isRectangle.Value;
+                return _isRectangle.Value;
             }
 
             var maxSide = Math.Max(ASide, Math.Max(BSide, CSide));
-            isRectangle = false;
 
             if (SidesEqual(maxSide, ASide))
             {
-                isRectangle = SidesEqual(ASide * ASide, BSide * BSide + CSide * CSide);
-                return isRectangle.Value;
+                _isRectangle = SidesEqual(ASide * ASide, BSide * BSide + CSide * CSide);
+                return _isRectangle.Value;
             }
 
             if (SidesEqual(maxSide, BSide))
             {
-                isRectangle = SidesEqual(BSide * BSide, ASide * ASide + CSide * CSide);
-                return isRectangle.Value;
+                _isRectangle = SidesEqual(BSide * BSide, ASide * ASide + CSide * CSide);
+                return _isRectangle.Value;
             }
 
-            isRectangle = SidesEqual(CSide * CSide, ASide * ASide + BSide * BSide);
-            return isRectangle.Value;
+            _isRectangle = SidesEqual(CSide * CSide, ASide * ASide + BSide * BSide);
+            return _isRectangle.Value;
         }
 
 

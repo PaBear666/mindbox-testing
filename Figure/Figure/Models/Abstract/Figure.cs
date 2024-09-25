@@ -9,7 +9,7 @@ namespace Figure.Models
         {
             get => _eps;
 
-            set
+            private set
             {
                 if (value <= 0)
                 {
